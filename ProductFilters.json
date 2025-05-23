@@ -1,0 +1,10 @@
+﻿[
+    {
+        "Product":  "notepad++.exe",
+        "Version":  "*"
+    },
+    {
+        "Product":  "AcroRd32.exe",
+        "Version":  "*"
+    }
+]
