@@ -5,11 +5,11 @@
 
 ## 🧐 What Is This?
 
-**pXLabs.PoorAdminsSoftwareMeteringPackage** is a homemade PowerShell-based software metering solution built for Intune-managed environments that lost traditional metering when moving away from ConfigMgr. It's lightweight, runs silently in the background, and logs application usage to a CSV.
+**pXLabs.PoorAdminsSoftwareMeteringPackage** is a homemade PowerShell-based software metering solution built for Intune-managed environments that lost traditional metering when moving away from ConfigMgr. It's lightweight, runs silently in the background, and logs application usage to a simple CSV.
 
-Then—because we’re resourceful—we sync the results to **OneDrive**, **SharePoint**, or any other location your budget will tolerate.
+Then, because we’re resourceful, we sync the results to **OneDrive**, **SharePoint**, or any other location your budget will tolerate.
 
-This is for all the **"accidentally broke metering when we moved to Intune"** admins out there. You’re not alone.
+This is for all the admins out there that are **"missing our software metering data because we moved to Intune"**. You’re not alone.
 
 ---
 
@@ -32,6 +32,7 @@ This is for all the **"accidentally broke metering when we moved to Intune"** ad
 - `SoftwareMetering.ps1`: The main metering script
 - `ProductFilterEditor.ps1`: A GUI editor for managing product/version filters
 - `ProductFilters.json`: Customize which apps to include
+- `SyncUsageData.ps1`: Onedrive sync routine
 
 ---
 
@@ -111,7 +112,7 @@ CSV columns include:
 - UserName
 - Product
 - Version
-- Runtime (in seconds)
+- Runtime (in minutes.seconds)
 
 ---
 
@@ -128,7 +129,7 @@ This tool fills that gap.
 
 ---
 ## 🔄 Syncing Usage Logs to OneDrive
-To help automate backing up your software metering logs, the install script sets up a scheduled task that runs the `SyncUsageData.ps1` script.
+To help automate backing up your software metering logs, the install script sets up a scheduled task that runs the `SyncUsageData.ps1` script every 4 hours.
 
 ### What it does:
 
@@ -151,7 +152,7 @@ To help automate backing up your software metering logs, the install script sets
 - Old historical CSV files in OneDrive are pruned automatically
 
 ### Customization:
-This script is provided as a working example to upload logs to OneDrive. You can modify it to sync or upload the CSV files to **any other path, network share, FTP server, cloud storage, or web API endpoint** as your environment and requirements dictate. Just replace the file copy/move logic with your preferred method.
+The `SyncUsageData.ps1` script is provided as a working example to upload logs to OneDrive. You can modify it to sync or upload the CSV files to **any other path, network share, FTP server, cloud storage, or web API endpoint** as your environment and requirements dictate. Just replace the file copy/move logic with your preferred method.
 
 
 
